@@ -23,8 +23,11 @@ import Analytics from './components/Analytics'
 import SettingsPage from './components/Settings'
 import About from './components/About'
 
-// Set Axios base URL
-axios.defaults.baseURL = 'http://localhost:8000';
+import { config } from './config'
+
+// Set Axios base URL (production uses Render backend)
+axios.defaults.baseURL = config.backendHttpUrl || 'http://localhost:8000';
+
 
 function App() {
   const [activePage, setActivePage] = useState('dashboard');

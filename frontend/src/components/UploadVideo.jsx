@@ -12,8 +12,11 @@ import {
   MdSpeed
 } from 'react-icons/md'
 
+import { config } from '../config'
+
 function UploadVideo({ startAlarm, stopAlarm, settings }) {
   const [selectedFile, setSelectedFile] = useState(null);
+
   const [uploadProgress, setUploadProgress] = useState(0);
   const [isUploading, setIsUploading] = useState(false);
   const [uploadedFilename, setUploadedFilename] = useState('');
@@ -108,7 +111,15 @@ function UploadVideo({ startAlarm, stopAlarm, settings }) {
     setAccidentDetected(false);
     stopAlarm();
 
-    const wsUrl = `ws://localhost:8000/api/detection/video/${uploadedFilename}`;
+
+    // Use centralized production WS URL (Vite build-time env)
+    const wsBase = (config && config.backendWsUrl) ? config.backendWsUrl : 'ws://localhost:8000'
+    const wsUrl = `${wsBase}/api/detection/video/${uploadedFilename}`;
+
+
+
+
+
     const ws = new WebSocket(wsUrl);
     socketRef.current = ws;
 

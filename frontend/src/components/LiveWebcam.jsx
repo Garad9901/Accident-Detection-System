@@ -10,6 +10,9 @@ import {
   MdInfoOutline
 } from 'react-icons/md'
 
+import { config } from '../config'
+
+
 function LiveWebcam({ startAlarm, stopAlarm, settings }) {
   const [streamMode, setStreamMode] = useState('browser'); // 'browser' or 'local' (backend camera 0)
   const [isRunning, setIsRunning] = useState(false);
@@ -51,7 +54,11 @@ function LiveWebcam({ startAlarm, stopAlarm, settings }) {
         return;
       }
       
-      const wsUrl = `ws://localhost:8000/api/detection/webcam`;
+      const wsBase = (config && config.backendWsUrl) ? config.backendWsUrl : 'ws://localhost:8000'
+      const wsUrl = `${wsBase}/api/detection/webcam`;
+
+
+
       const ws = new WebSocket(wsUrl);
       socketRef.current = ws;
 
