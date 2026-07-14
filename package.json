@@ -5,6 +5,7 @@
   "private": true,
   "scripts": {
     "install:all": "npm install --prefix frontend",
+    "postinstall": "npm run install:all",
     "dev:frontend": "npm run dev --prefix frontend",
     "dev:backend": "venv\\Scripts\\python -m uvicorn backend.main:app --reload --port 8000",
     "dev": "npx concurrently \"npm run dev:frontend\" \"npm run dev:backend\"",
