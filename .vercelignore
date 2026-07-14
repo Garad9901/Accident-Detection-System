@@ -1,0 +1,11 @@
+# Ignore Python backend files to prevent Vercel from building them
+backend/
+requirements.txt
+*.py
+*.pt
+*.weights
+*.cfg
+*.mp4
+*.db
+venv/
+.venv/
