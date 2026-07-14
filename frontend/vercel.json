@@ -1,0 +1,14 @@
+{
+  "version": 2,
+  "cleanUrls": true,
+  "rewrites": [
+    {
+      "source": "/api/:path*",
+      "destination": "https://accident-detection-system-web7.onrender.com/api/:path*"
+    },
+    {
+      "source": "/ws/:path*",
+      "destination": "wss://accident-detection-system-web7.onrender.com/ws/:path*"
+    }
+  ]
+}
