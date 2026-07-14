@@ -1,1 +1,29 @@
-node_modules
+# Dependencies
+node_modules/
+/dist
+/frontend/dist
+
+# Python
+venv/
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+
+# Databases
+accident_system.db
+*.db
+
+# Uploads and temporary assets
+backend/uploads/*
+!backend/uploads/.gitkeep
+
+# Environment variables
+.env
+.env.local
+
+# OS files
+.DS_Store
+Thumbs.db
