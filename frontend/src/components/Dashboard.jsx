@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { config } from '../config'
 import axios from 'axios'
 import { motion } from 'framer-motion'
 import { AreaChart, Area, BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer } from 'recharts'
@@ -392,10 +393,10 @@ function Dashboard({ setActivePage, settings }) {
               <div 
                 key={log.id} 
                 className="group relative cursor-pointer overflow-hidden rounded-xl border border-white/10 hover:border-indigo-500/50 shadow-md transition-all"
-                onClick={() => setSelectedImage(`http://localhost:8000/api/uploads/${log.image_path}`)}
+                onClick={() => setSelectedImage(`${config.backendHttpUrl}/api/uploads/${log.image_path}`)}
               >
                 <img 
-                  src={`http://localhost:8000/api/uploads/${log.image_path}`} 
+                  src={`${config.backendHttpUrl}/api/uploads/${log.image_path}`} 
                   alt="Accident Event" 
                   className="w-full h-24 object-cover group-hover:scale-105 transition-all duration-300"
                 />

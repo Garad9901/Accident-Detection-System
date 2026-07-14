@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { config } from '../config'
 import axios from 'axios'
 import { Table, Button, Input, Select, Modal, message, Tag } from 'antd'
 import { 
@@ -65,7 +66,7 @@ function History({ sourceFilter = null, accidentOnly = false }) {
   };
 
   const handleExport = () => {
-    window.open('http://localhost:8000/api/history/download', '_blank');
+    window.open(`${config.backendHttpUrl}/api/history/download`, '_blank');
   };
 
   // Define table columns
@@ -140,7 +141,7 @@ function History({ sourceFilter = null, accidentOnly = false }) {
           <Button 
             type="text" 
             icon={<MdImage size={18} />} 
-            onClick={() => setZoomImage(`http://localhost:8000/api/uploads/${path}`)}
+            onClick={() => setZoomImage(`${config.backendHttpUrl}/api/uploads/${path}`)}
             className="text-indigo-400 hover:text-indigo-300 p-0 flex items-center"
           >
             View

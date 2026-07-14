@@ -1,7 +1,7 @@
 // Centralized production config for API + WebSocket URLs.
 // Vercel provides these at build-time via environment variables (VITE_*).
 
-const httpBase = import.meta.env.VITE_BACKEND_HTTP_URL || 'https://accident-detection-system-nzl8.onrender.com'
+const httpBase = import.meta.env.VITE_BACKEND_HTTP_URL || 'https://accident-detection-system-web7.onrender.com'
 const wsBaseEnv = import.meta.env.VITE_BACKEND_WS_URL || ''
 
 function normalizeHttpBase(url) {
